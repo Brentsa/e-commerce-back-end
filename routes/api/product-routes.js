@@ -60,6 +60,7 @@ router.post('/', (req, res) => {
       product_name: "Basketball",
       price: 200.00,
       stock: 3,
+      category_id: ,
       tagIds: [1, 2, 3, 4]
     }
   */
@@ -128,8 +129,26 @@ router.put('/:id', (req, res) => {
     });
 });
 
+// delete one product by its `id` value
 router.delete('/:id', (req, res) => {
-  // delete one product by its `id` value
+  Product.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+  .then(dbDestroyedData => {
+    if(!dbDestroyedData){
+      res.status(404).json({message: 'Product not found in database.'})
+    }
+    else{
+      res.json(dbDestroyedData);
+    }
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  })
+
 });
 
 module.exports = router;
