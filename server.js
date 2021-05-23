@@ -15,6 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(routes);
 
 //Sync sequelize models with the connection to our local database
+//**IMPORTANT** change force: false to true if you changes are made to the models
 sequelize.sync({force: false}).then(() => {
   //Establish our express server connection
   app.listen(PORT, () => console.log(`App listening on port ${PORT}!`));
