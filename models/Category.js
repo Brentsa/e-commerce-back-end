@@ -1,8 +1,10 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection.js');
 
+//initialize Category by extending the Model class
 class Category extends Model {}
 
+//define fields and rules
 Category.init(
   {
     id: {

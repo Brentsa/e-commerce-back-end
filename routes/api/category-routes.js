@@ -87,7 +87,7 @@ router.put('/:id', (req, res) => {
       res.status(404).json({message: 'Category not found in database.'});
     }
     else{
-      res.json(updatedCategory);
+      res.json({message: 'Category has been successfully updated.'});
     }
   })
   .catch(err => {
@@ -110,7 +110,7 @@ router.delete('/:id', (req, res) => {
       res.status(404).json({message: 'Category not found in database.'});
     }
     else{
-      res.json(destroyedData);
+      res.json({message: 'Category has been successfully deleted.'});
     }
   })
   .catch(err => {

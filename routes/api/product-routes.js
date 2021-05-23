@@ -141,7 +141,7 @@ router.delete('/:id', (req, res) => {
       res.status(404).json({message: 'Product not found in database.'})
     }
     else{
-      res.json(dbDestroyedData);
+      res.json({message: 'Product has been successfully deleted.'});
     }
   })
   .catch(err => {
